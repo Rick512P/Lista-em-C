@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "MusicsLib.h": "c",
+        "unistd.h": "c"
+    }
+}
