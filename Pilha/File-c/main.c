@@ -8,9 +8,9 @@
 
 int main(){
     int op=1;
-    Desc *Pilha = NULL;
-    Nodo *elemento = NULL;
-    Musica *musica = NULL;
+    DescPIlha *Pilha = NULL;
+    NodoPIlha *elemento = NULL;
+    MusicaPIlha *musica = NULL;
     do{
         printf("1- Criar Pilha\n"); //Cria Pilha
         printf("2- Push\n"); //Insere elemento no topo da lista
@@ -29,7 +29,7 @@ int main(){
                     limpaPilha(Pilha);
                 break;
             case 1:
-                Pilha = criaDesc();
+                Pilha = criaDescPIlha();
                 if (Pilha !=NULL)
                     puts("Lista Criada com Sucesso");
                 break;
@@ -38,7 +38,7 @@ int main(){
                     puts("Crie uma Pilha primeiro!");
                 }
                 else{
-                    elemento = criaNodo();
+                    elemento = criaNodoPIlha();
                     musica = preencheElemento();
                     inserePilha(Pilha, elemento, musica);
                 }

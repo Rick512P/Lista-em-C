@@ -8,11 +8,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-typedef struct music Musica;
-typedef struct nodo Nodo;
-typedef struct desc Desc;
+typedef struct musicfila MusicaFIla;
+typedef struct nodofila NodoFila;
+typedef struct descfila DescFila;
 
-struct music{
+struct musicfila{
     char titulo[256];
     char artista[256];
     char letra[256];
@@ -20,23 +20,23 @@ struct music{
     int execucoes;
 };
 
-struct nodo{
-    Nodo *prox;
-    Musica *info;
-    Nodo *ante;
+struct nodofila{
+    NodoFila *prox;
+    MusicaFIla *info;
+    NodoFila *ante;
 };
 
-struct desc{
-    Nodo *head;
-    Nodo *tail;
+struct descfila{
+    NodoFila *head;
+    NodoFila *tail;
     int tamanho;
 };
 
 
-Desc * criaDesc();
-Nodo * criaNodo();
-Musica * preencheElemento();
-void ENQUEUE(Desc *descritor, Nodo *elemento, Musica *musica);
-Nodo * DEQUEUE(Desc *descritor);
-void ShowQueue(Desc *descritor);
-void limpaQueue(Desc *descritor);
+DescFila * criaDescFila();
+NodoFila * criaNodoFila();
+MusicaFIla * preencheElemento();
+void ENQUEUE(DescFila *descritor, NodoFila *elemento, MusicaFIla *MusicaFIla);
+NodoFila * DEQUEUE(DescFila *descritor);
+void ShowQueue(DescFila *descritor);
+void limpaQueue(DescFila *descritor);

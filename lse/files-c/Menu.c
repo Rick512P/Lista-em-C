@@ -115,7 +115,7 @@ int main(void){
                 printf("\n _______________________________________________________");
                 printf("\n--> ");
                 scanf("%d", &position);
-                RemoveMusic(desc, position--);
+                RemoveMusic(desc, position);
                 break;
 
             default://caso padrão

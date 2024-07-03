@@ -8,11 +8,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-typedef struct music Musica;
-typedef struct nodo Nodo;
-typedef struct desc Desc;
+typedef struct musicpIlha MusicaPIlha;
+typedef struct nodopIlha NodoPIlha;
+typedef struct descpIlha DescPIlha;
 
-struct music{
+struct musicpIlha{
     char titulo[256];
     char artista[256];
     char letra[256];
@@ -20,23 +20,23 @@ struct music{
     int execucoes;
 };
 
-struct nodo{
-    Nodo *prox;
-    Musica *info;
+struct nodopIlha{
+    NodoPIlha *prox;
+    MusicaPIlha *info;
 };
 
-struct desc{
-    Nodo *pilha;
+struct descpIlha{
+    NodoPIlha *pilha;
     int tamanho;
 };
 
 
-Desc * criaDesc();
-Nodo * criaNodo();
-Musica * preencheElemento();
-void inserePilha(Desc *descritor, Nodo *elemento, Musica *musica);
-Nodo * POP(Desc *descritor);
-void TOP(Desc *pilha);
-void ImprimirPIlha(Desc *descritor);
-void removeElemento(Desc *descritor);
-void limpaPilha(Desc *descritor);
+DescPIlha * criaDescPIlha();
+NodoPIlha * criaNodoPIlha();
+MusicaPIlha * preencheElemento();
+void inserePilha(DescPIlha *descritor, NodoPIlha *elemento, MusicaPIlha *musica);
+NodoPIlha * POP(DescPIlha *descritor);
+void TOP(DescPIlha *pilha);
+void ImprimirPIlha(DescPIlha *descritor);
+void removeElemento(DescPIlha *descritor);
+void limpaPilha(DescPIlha *descritor);

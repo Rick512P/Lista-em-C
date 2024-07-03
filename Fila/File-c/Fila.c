@@ -6,23 +6,23 @@
 
 #include "../File-h/biblioteca.h"
 
-Desc * criaDesc(){
-    Desc *Descritor = (Desc *)malloc(sizeof(Desc));
-    Descritor->head=NULL;
-    Descritor->tail=NULL;
-    Descritor->tamanho=0;
-    return Descritor;
+DescFila * criaDescFila(){
+    DescFila *DescFilaritor = (DescFila *)malloc(sizeof(DescFila));
+    DescFilaritor->head=NULL;
+    DescFilaritor->tail=NULL;
+    DescFilaritor->tamanho=0;
+    return DescFilaritor;
 }
 
-Nodo * criaNodo(){
-    Nodo *elemento = (Nodo *)malloc(sizeof(Nodo));
+NodoFila * criaNodoFila(){
+    NodoFila *elemento = (NodoFila *)malloc(sizeof(NodoFila));
     elemento->prox=NULL;
     elemento->ante=NULL;
     return elemento;
 }
 
-Musica * preencheElemento(){
-    Musica *elemento = (Musica *)malloc(sizeof(Musica));
+MusicaFIla * preencheElemento(){
+    MusicaFIla *elemento = (MusicaFIla *)malloc(sizeof(MusicaFIla));
     char auxiliar[256];
     puts("Entre com o nome do artista/banda: ");
     scanf(" %255[^\n]", auxiliar);
@@ -39,8 +39,8 @@ Musica * preencheElemento(){
     return elemento;
 }
 
-void ENQUEUE(Desc *descritor, Nodo *elemento, Musica *musica){
-    elemento->info = musica;
+void ENQUEUE(DescFila *descritor, NodoFila *elemento, MusicaFIla *MusicaFIla){
+    elemento->info = MusicaFIla;
     if (descritor->tamanho == 0) // Verifica se a Fila esta Vazia
     {   
         descritor->head = elemento;
@@ -48,7 +48,7 @@ void ENQUEUE(Desc *descritor, Nodo *elemento, Musica *musica){
         descritor->tamanho++;
     }
     else{
-        Nodo *aux=descritor->tail;
+        NodoFila *aux=descritor->tail;
         aux->prox = elemento;
         elemento->ante = aux;
         descritor->tail = elemento;
@@ -56,7 +56,7 @@ void ENQUEUE(Desc *descritor, Nodo *elemento, Musica *musica){
     }
 }
 
-Nodo * DEQUEUE(Desc *descritor)//remove o primeiro elemento da Fila
+NodoFila * DEQUEUE(DescFila *descritor)//remove o primeiro elemento da Fila
 {
     if (descritor->tamanho == 0)
     {
@@ -68,7 +68,7 @@ Nodo * DEQUEUE(Desc *descritor)//remove o primeiro elemento da Fila
         descritor->tamanho = 0;
     }
     else{
-        Nodo *aux = descritor->head;
+        NodoFila *aux = descritor->head;
         descritor->head->prox->ante = NULL;
         descritor->head = descritor->head->prox;
         descritor->tamanho--;
@@ -77,13 +77,13 @@ Nodo * DEQUEUE(Desc *descritor)//remove o primeiro elemento da Fila
 
 }
 
-void ShowQueue(Desc *descritor){
+void ShowQueue(DescFila *descritor){
     if (descritor->tamanho == 0)
     {
         puts("Queue vazia!");
     }
     else{
-        Nodo *aux = descritor->head;
+        NodoFila *aux = descritor->head;
         while (aux != NULL)
         {
             printf("Artista/Banda: %s\n",aux->info->artista);
@@ -98,9 +98,9 @@ void ShowQueue(Desc *descritor){
     }
 }
 
-void limpaQueue(Desc *descritor){
+void limpaQueue(DescFila *descritor){
    
-    Nodo *aux=descritor->head;
+    NodoFila *aux=descritor->head;
     while (aux != NULL)
     {
         if (descritor->tamanho == 1)

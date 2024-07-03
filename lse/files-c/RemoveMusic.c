@@ -2,7 +2,7 @@
 
 
 Node* RemoveMusic(Desc *desc, int Position){
-    if (Position > desc->size || desc->size == 0){ //verifica a existencia da posição comparando com o tamanho da lista
+    if (Position > desc->size-1 || desc->size == 0){ //verifica a existencia da posição comparando com o tamanho da lista
         fprintf(stderr, "=+= Essa Posição não Existe! =+=\n");
         fprintf(stderr, "=+=   Retornando ao Menu!    =+=");
         sleep(1.3); //pausa cronometrada na execução do programa para efeitos vizuais
@@ -10,7 +10,7 @@ Node* RemoveMusic(Desc *desc, int Position){
         return NULL;
     }
     
-    if(Position == 0 && desc->size<1){ // verifica se é o primeiro item da lista
+    if(Position == 0 && desc->size>1){ // verifica se é o primeiro item da lista
         desc->first = desc->first->next;
         desc->size--;
         printf("\n ________________________________");

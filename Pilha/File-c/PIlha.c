@@ -6,21 +6,21 @@
 
 #include "../File-h/biblioteca.h"
 
-Desc * criaDesc(){
-    Desc *Descritor = (Desc *)malloc(sizeof(Desc));
-    Descritor->pilha=NULL;
-    Descritor->tamanho=0;
-    return Descritor;
+DescPIlha * criaDescPIlha(){
+    DescPIlha *DescPIlharitor = (DescPIlha *)malloc(sizeof(DescPIlha));
+    DescPIlharitor->pilha=NULL;
+    DescPIlharitor->tamanho=0;
+    return DescPIlharitor;
 }
 
-Nodo * criaNodo(){
-    Nodo *elemento = (Nodo *)malloc(sizeof(Nodo));
+NodoPIlha * criaNodoPIlha(){
+    NodoPIlha *elemento = (NodoPIlha *)malloc(sizeof(NodoPIlha));
     elemento->prox=NULL;
     return elemento;
 }
 
-Musica * preencheElemento(){
-    Musica *elemento = (Musica *)malloc(sizeof(Musica));
+MusicaPIlha * preencheElemento(){
+    MusicaPIlha *elemento = (MusicaPIlha *)malloc(sizeof(MusicaPIlha));
     char auxiliar[256];
     puts("Entre com o nome do artista/banda: ");
     scanf(" %255[^\n]", auxiliar);
@@ -37,7 +37,7 @@ Musica * preencheElemento(){
     return elemento;
 }
 
-void inserePilha(Desc *descritor, Nodo *elemento, Musica *musica){
+void inserePilha(DescPIlha *descritor, NodoPIlha *elemento, MusicaPIlha *musica){
     elemento->info = musica;
     if (descritor->tamanho == 0) // Verifica se a Pilha esta Vazia
     {   
@@ -45,7 +45,7 @@ void inserePilha(Desc *descritor, Nodo *elemento, Musica *musica){
         descritor->tamanho++;
     }
     else{
-        Nodo *aux=descritor->pilha, *auxanterior;
+        NodoPIlha *aux=descritor->pilha, *auxanterior;
         while (aux != NULL)
         {
             auxanterior = aux;
@@ -56,7 +56,7 @@ void inserePilha(Desc *descritor, Nodo *elemento, Musica *musica){
     }
 }
 
-Nodo * POP(Desc *descritor)//remove elemento do topo da lista
+NodoPIlha * POP(DescPIlha *descritor)//remove elemento do topo da lista
 {
     if (descritor->tamanho == 0)
     {
@@ -67,7 +67,7 @@ Nodo * POP(Desc *descritor)//remove elemento do topo da lista
         descritor->tamanho = 0;
     }
     else{
-        Nodo *aux = descritor->pilha, *auxanterior;
+        NodoPIlha *aux = descritor->pilha, *auxanterior;
         int size = descritor->tamanho;
         size--;
         while (aux->prox != NULL)
@@ -82,14 +82,14 @@ Nodo * POP(Desc *descritor)//remove elemento do topo da lista
 
 }
 
-void TOP(Desc *pilha){
+void TOP(DescPIlha *pilha){
     if (pilha->tamanho == 0)
     {
         puts("Pilha vazia!");
     }
     else{
     
-        Nodo *aux=pilha->pilha, *auxanterior;
+        NodoPIlha *aux=pilha->pilha, *auxanterior;
         while (aux != NULL)
         {
             auxanterior = aux;
@@ -104,13 +104,13 @@ void TOP(Desc *pilha){
     }
 }
 
-void ImprimirPIlha(Desc *descritor){
+void ImprimirPIlha(DescPIlha *descritor){
     if (descritor->tamanho == 0)
     {
         puts("Pilha vazia!");
     }
     else{
-        Nodo *aux = descritor->pilha;
+        NodoPIlha *aux = descritor->pilha;
         while (aux != NULL)
         {
             printf("Artista/Banda: %s\n",aux->info->artista);
@@ -125,8 +125,8 @@ void ImprimirPIlha(Desc *descritor){
     }
 }
 
-void limpaPilha(Desc *descritor){
-    Nodo *aux = descritor->pilha, *auxanterior;
+void limpaPilha(DescPIlha *descritor){
+    NodoPIlha *aux = descritor->pilha, *auxanterior;
     while (aux != NULL)
     {   
         if (descritor->tamanho == 1)

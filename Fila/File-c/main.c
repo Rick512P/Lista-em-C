@@ -8,9 +8,9 @@
 
 int main(){
     int op=1;
-    Desc *Queue = NULL;
-    Nodo *elemento = NULL;
-    Musica *musica = NULL;
+    DescFila *Queue = NULL;
+    NodoFila *elemento = NULL;
+    MusicaFIla *MusicaFIla = NULL;
     do{
         printf("1- Criar Queue\n"); //Cria A FIla
         printf("2- ENQUEUE\n"); //Insere elemento no fim da fila
@@ -33,7 +33,7 @@ int main(){
                         limpaQueue(Queue);
                 break;
             case 1:
-                Queue = criaDesc();
+                Queue = criaDescFila();
                 if (Queue !=NULL)
                     puts("Lista Criada com Sucesso");
                 break;
@@ -42,9 +42,9 @@ int main(){
                     puts("Crie uma Queue primeiro!");
                 }
                 else{
-                    elemento = criaNodo();
-                    musica = preencheElemento();
-                    ENQUEUE(Queue, elemento, musica);
+                    elemento = criaNodoFila();
+                    MusicaFIla = preencheElemento();
+                    ENQUEUE(Queue, elemento, MusicaFIla);
                 }
                 break;
             case 3:
